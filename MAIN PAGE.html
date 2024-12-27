@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Best E-Commerce Website</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet"/>
+    <style>
+        .product-description {
+            display: none;
+        }
+        .hidden {
+            display: none;
+        }
+    </style>
+    <script>
+        function toggleDescription(id) {
+            const description = document.getElementById(id);
+            if (description.style.display === "none" || description.style.display === "") {
+                description.style.display = "block";
+            } else {
+                description.style.display = "none";
+            }
+        }
+
+        function searchProducts() {
+            const query = document.getElementById('searchInput').value.toLowerCase();
+            const products = document.querySelectorAll('.product');
+            products.forEach(product => {
+                const productName = product.querySelector('.product-name').textContent.toLowerCase();
+                if (productName.includes(query)) {
+                    product.classList.remove('hidden');
+                } else {
+                    product.classList.add('hidden');
+                }
+            });
+        }
+   function toggleModal(modalId) {
+            const modal = document.getElementById(modalId);
+            modal.classList.toggle('hidden');
+        }
+
+        function handleLogin(event) {
+            event.preventDefault(); // Prevent form submission
+            // Here you can add your login logic (e.g., API call)
+            const email = document.getElementById('loginEmail').value;
+            const password = document.getElementById('loginPassword').value;
+
+            // Placeholder for successful login
+            if (email && password) {
+                alert("Login successful!"); 
+                toggleModal('loginModal'); // Close the modal
+            } else {
+                alert("Please enter both email and password.");
+            }
+        }
+
+    </script>
+</head>
+<body class="font-roboto bg-gray-100">
+    <!-- Header -->
+    <header class="bg-white shadow">
+        <div class="container mx-auto px-6 py-3 flex justify-between items-center">
+            <a class="text-xl font-bold text-gray-800" href="#">Fusion Coders</a>
+            <nav class="flex space-x-4">
+                <a href="#" class="text-gray-600 hover:text-blue-600">Home</a>
+                <a href="file:///C:/Users/nathi/OneDrive/Documents/ABOUT.html" class="text-gray-600 hover:text-blue-600">About</a>
+               
+                <a href="file:///C:/Users/nathi/OneDrive/Documents/ELECTRONICS.html" class="text-gray-600 hover:text-blue-600">Electronics</a>
+                <a href="file:///C:/Users/nathi/OneDrive/Documents/FURNITURE.html" class="text-gray-600 hover:text-blue-600">Furniture</a>
+            </nav>
+            <div class="flex items-center">
+                <input
+                    id="searchInput"
+                    type="text"
+                    class="px-4 py-2 border border-gray-300 rounded"
+                    placeholder="Search products..."
+                    oninput="searchProducts()"
+                />
+                <button class="ml-2 px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-500" onclick="searchProducts()">
+                    Search
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="bg-white">
+        <div class="container mx-auto px-6 py-16 text-center">
+            <h2 class="text-3xl font-bold text-gray-800">Welcome to Fusion Coders</h2>
+            <p class="text-gray-600 mt-4">Find the best products at unbeatable prices</p>
+  <button class="ml-4 px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-500" onclick="toggleModal('loginModal')">Log in</button>
+
+            
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section class="container mx-auto px-6 py-16">
+        <h2 class="text-2xl font-bold text-gray-800 text-center">Featured Products</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-8">
+            <!-- Product 1 -->
+            <div class="bg-white shadow rounded overflow-hidden product">
+                <img alt="A stylish modern chair with wooden legs and a comfortable cushion" class="w-full h-48 object-cover" height="400" src="https://storage.googleapis.com/a1aa/image/aqY3JoIgsaItC9BYHxh05UeP3WH77V2G65OD7CZYjSEtKyeTA.jpg" width="600"/>
+                <div class="p-4">
+                    <h3 class="text-lg font-bold text-gray-800 product-name">Modern Chair</h3>
+                    <p class="text-gray-600 mt-2">₹2,500 </p>
+                    <div class="flex items-center mt-2">
+                        <i class="fas fa-star text-yellow-500"></i>
+                        <i class="fas fa-star text-yellow-500"></i>
+                        <i class="fas fa-star text-yellow-500"></i>
+                        <i class="fas fa-star text-yellow-500"></i>
+                        <i class="fas fa-star text-gray-300"></i>
+                        <span class="ml-2 text-gray-600">(4.0)</span>
+                    </div>
+                    <button class="mt-4 px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-500" onclick="toggleDescription('desc1')">View Description</button>
+                    <div class="product-description mt-4" id="desc1">
+                        <p class="text-gray-600">This modern chair is designed with comfort and style in mind. It features wooden legs and a comfortable cushion, making it perfect for any living space.</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Product 2 -->
+            <div class="bg-white shadow rounded overflow-hidden product">
+                <img alt="A sleek black smartwatch with a digital display and multiple features" class="w-full h-48 object-cover" height="400" src="https://storage.googleapis.com/a1aa/image/i3uud5G7NV4bFZqp7lxwkW5PJfLoMsbGnmgjJA2nSBSqKyeTA.jpg" width="600"/>
+                <div class="p-4">
+                    <h3 class="text-lg font-bold text-gray-800 product-name">Smart Watch</h3>
+                    <p class="text-gray-600 mt-2">₹5,000</p>
+                    <div class="flex items-center mt-2">
+                        <i class="fas fa-star text-yellow-500"></i>
+                        <i class="fas fa-star text-yellow-500"></i>
+                        <i class="fas fa-star text-yellow-500"></i>
+                        <i class="fas fa-star text-yellow-500"></i>
+                        <i class="fas fa-star text-yellow-500"></i>
+                        <span class="ml-2 text-gray-600">(5.0)</span>
+                    </div>
+                    <button class="mt-4 px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-500" onclick="toggleDescription('desc2')">View Description</button>
+                    <div class="product-description mt-4" id="desc2">
+                        <p class="text-gray-600">This sleek smartwatch comes with a digital display and multiple features including fitness tracking, notifications, and more. It's perfect for staying connected on the go.</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Product 3 -->
+            <div class="bg-white shadow rounded overflow-hidden product">
+                <img alt="A pair of wireless earbuds with a sleek charging case" class="w-full h-48 object-cover" height="400" src="https://storage.googleapis.com/a1aa/image/0rESuMsvKPqaIl82QeZCNcBZ7LsdlMO37yopFM9E2QboKyeTA.jpg" width="600"/>
+                <div class="p-4">
+                    <h3 class="text-lg font-bold text-gray-800 product-name">Wireless Earbuds</h3>
+                    <p class="text-gray-600 mt-2">₹3,000</p>
+                    <div class="flex items-center mt-2">
+                        <i class="fas fa-star text-yellow-500"></i>
+                        <i class="fas fa-star text-yellow-500"></i>
+                        <i class="fas fa-star text-yellow-500"></i>
+                        <i class="fas fa-star text-yellow-500"></i>
+                        <i class="fas fa-star text-gray-300"></i>
+                        <span class="ml-2 text-gray-600">(4.0)</span>
+                    </div>
+                    <button class="mt-4 px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-500" onclick="toggleDescription('desc3')">View Description</button>
+                    <div class="product-description mt-4" id="desc3">
+                        <p class="text-gray-600">These wireless earbuds offer high-quality sound and come with a sleek charging case. They are perfect for listening to music or taking calls on the go.</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Product 4 -->
+            <div class="bg-white shadow rounded overflow-hidden product">
+                <img alt="A high-quality DSLR camera with a zoom lens" class="w-full h-48 object-cover" height="400" src="https://storage.googleapis.com/a1aa/image/qo3XALoNFVa9JBTHweB7AMCuMOP8CTZqwBVKLvoYH3IrKyeTA.jpg" width="600"/>
+                <div class="p-4">
+                    <h3 class="text-lg font-bold text-gray-800 product-name">DSLR Camera</h3>
+                    <p class="text-gray-600 mt-2">₹25,000</p>
+                    <div class="flex items-center mt-2">
+                        <i class="fas fa-star text-yellow-500"></i>
+                        <i class="fas fa-star text-yellow-500"></i>
+                        <i class="fas fa-star text-yellow-500"></i>
+                        <i class="fas fa-star text-yellow-500"></i>
+                        <i class="fas fa-star text-gray-300"></i>
+                        <span class="ml-2 text-gray-600">(4.0)</span>
+                    </div>
+                    <button class="mt-4 px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-500" onclick="toggleDescription('desc4')">View Description</button>
+                    <div class="product-description mt-4" id="desc4">
+                        <p class="text-gray-600">This high-quality DSLR camera comes with a zoom lens, making it perfect for capturing stunning photos and videos. Ideal for both beginners and professionals.</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Product 5 -->
+            <div class="bg-white shadow rounded overflow-hidden product">
+                <img alt="A sleek and modern laptop with a high-resolution display" class="w-full h-48 object-cover" height="400" src="https://storage.googleapis.com/a1aa/image/P8R1xxzI1OLWDR2FLWzudVItZe1jBgAiJQLSTZ4lDZbsKyeTA.jpg" width="600"/>
+                <div class="p-4">
+                    <h3 class="text-lg font-bold text-gray-800 product-name">Laptop</h3>
+                    <p class="text-gray-600 mt-2">₹50,000</p>
+                    <div class="flex items-center mt-2">
+                        <i class="fas fa-star text-yellow-500"></i>
+                        <i class="fas fa-star text-yellow-500"></i>
+                        <i class="fas fa-star text-yellow-500"></i>
+                        <i class="fas fa-star text-yellow-500"></i>
+                        <i class="fas fa-star text-yellow-500"></i>
+                        <span class="ml-2 text-gray-600">(5.0)</span>
+                    </div>
+                    <button class="mt-4 px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-500" onclick="toggleDescription('desc5')">View Description</button>
+                    <div class="product-description mt-4" id="desc5">
+                        <p class="text-gray-600">This sleek and modern laptop features a high-resolution display and powerful performance, making it perfect for both work and entertainment.</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Product 6 -->
+            <div class="bg-white shadow rounded overflow-hidden product">
+                <img alt="A stylish pair of running shoes with a comfortable sole" class="w-full h-48 object-cover" height="400" src="https://storage.googleapis.com/a1aa/image/0EeE4PW5M8ycLCZv9zQc3Hh6f8feDNfc874DOwotTrTfWFZfJA.jpg" width="600"/>
+                <div class="p-4">
+                    <h3 class="text-lg font-bold text-gray-800 product-name">Running Shoes</h3>
+                    <p class="text-gray-600 mt-2">₹3,500</p>
+                    <div class="flex items-center mt-2">
+                        <i class="fas fa-star text-yellow-500"></i>
+                        <i class="fas fa-star text-yellow-500"></i>
+                        <i class="fas fa-star text-yellow-500"></i>
+                        <i class="fas fa-star text-yellow-500"></i>
+                        <i class="fas fa-star text-gray-300"></i>
+                        <span class="ml-2 text-gray-600">(4.0)</span>
+                    </div>
+                    <button class="mt-4 px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-500" onclick="toggleDescription('desc6')"> View Description</button>
+                    <div class="product-description mt-4" id="desc6">
+                        <p class="text-gray-600">These stylish running shoes feature a comfortable sole and are perfect for both casual wear and athletic activities.</p>
+                    </div>
+                </div>
+            </div>
+            <!-- New Product 7: Blender -->
+            <div class="bg-white shadow rounded overflow-hidden product">
+                <img alt="A powerful kitchen blender with multiple speed settings" class="w-full h-48 object-cover" height="400" src="https://media.istockphoto.com/id/1279154436/photo/selective-focus-of-ripe-fruits-near-blender-on-kitchen-table.jpg?s=612x612&w=0&k=20&c=yJKXkQclgsKv7jTC_MsSp3I5jNk3Z9CYobXqrnz3r-4=" width="600"/>
+                <div class="p-4">
+                    <h3 class="text-lg font-bold text-gray-800 product-name">Kitchen Blender</h3>
+                    <p class="text-gray-600 mt-2">₹2,000</p>
+                    <div class="flex items-center mt-2">
+                        <i class="fas fa-star text-yellow-500"></i>
+                        <i class="fas fa-star text-yellow-500"></i>
+                        <i class="fas fa-star text-yellow-500"></i>
+                        <i class="fas fa-star text-yellow-500"></i>
+                        <i class="fas fa-star text-gray-300"></i>
+                        <span class="ml-2 text-gray-600">(4.5)</span>
+                    </div>
+                    <button class="mt-4 px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-500" onclick="toggleDescription('desc7')">View Description</button>
+                    <div class="product-description mt-4" id="desc7">
+                        <p class="text-gray-600">This powerful kitchen blender features multiple speed settings and is perfect for making smoothies, soups, and sauces.</p>
+                    </div>
+                </div>
+            </div>
+            <!-- New Product 8: Microwave -->
+            <div class="bg-white shadow rounded overflow-hidden product">
+                <img alt="A compact microwave oven with various cooking settings" class="w-full h-48 object-cover" height="400" src="https://t4.ftcdn.net/jpg/00/35/03/01/360_F_35030185_4f0JQTIWSQqAH2GQdMYBVFeeF2JK8Z72.jpg" width="600"/>
+                <div class="p-4">
+                    <h3 class="text-lg font-bold text-gray-800 product-name">Microwave Oven</h3>
+                    <p class="text-gray-600 mt-2">₹8,000</p>
+                    <div class="flex items-center mt-2">
+                        <i class="fas fa-star text-yellow-500"></i>
+                        <i class="fas fa-star text-yellow-500"></i>
+                        <i class="fas fa-star text-yellow-500"></i>
+                        <i class="fas fa-star text-yellow-500"></i>
+                        <i class="fas fa-star text-yellow-500"></i>
+                        <span class="ml-2 text-gray-600">(5.0)</span>
+                    </div>
+                    <button class="mt-4 px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-500" onclick="toggleDescription('desc8')">View Description</button>
+                    <div class="product-description mt-4" id="desc8">
+                        <p class="text-gray-600">This compact microwave oven comes with various cooking settings, making it easy to heat and cook your favorite meals.</p>
+                    </div>
+                </div>
+            </div>
+            <!-- New Product 9: Vacuum Cleaner -->
+            <div class="bg-white shadow rounded overflow-hidden product">
+                <img alt="A lightweight vacuum cleaner with powerful suction" class="w-full h-48 object-cover" height="400" src="https://media.istockphoto.com/id/927031764/photo/vacuum-cleaner-isolated-on-white-background.jpg?s=612x612&w=0&k=20&c=p2WFCCgubSVDs3a3VhEkpWM9ZrqbncKvHtT4J7aaM9U=" width="600"/>
+                <div class="p-4">
+                    <h3 class="text-lg font-bold text-gray-800 product-name">Vacuum Cleaner</h3>
+                    <p class="text-gray-600 mt-2">₹4,500</p>
+                    <div class="flex items-center mt-2">
+                        <i class="fas fa-star text-yellow-500"></i>
+                        <i class="fas fa-star text-yellow-500"></i>
+                        <i class="fas fa-star text-yellow-500"></i>
+                        <i class="fas fa-star text-yellow-500"></i>
+                        <i class="fas fa-star text-gray-300"></i>
+                        <span class="ml-2 text-gray-600">(4.0)</span>
+                    </div>
+                    <button class="mt-4 px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-500" onclick="toggleDescription('desc9')">View Description</button>
+                    <div class="product -description mt-4" id="desc9">
+                        <p class="text-gray-600">This lightweight vacuum cleaner features powerful suction and is perfect for keeping your home clean and tidy.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-8">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Quick Links</h3>
+                    <ul>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Home</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Shop</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">About</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Payment Options</h3>
+                    <ul>
+                        <li><a href="https://www.goodreturns.in/payment-apps-and-e-wallets.html" class="text-gray-400 hover:text-white">Credit Card</a></li>
+                        <li><a href="https://www.goodreturns.in/payment-apps-and-e-wallets.html" class="text-gray-400 hover:text-white">Debit Card</a></li>
+                        <li><a href="https://www.goodreturns.in/payment-apps-and-e-wallets.html" class="text-gray-400 hover:text-white">UPI</a></li>
+                        <li><a href="https://www.goodreturns.in/payment-apps-and-e-wallets.html" class="text-gray-400 hover:text-white">Wallet</a></li>
+                                          </ul>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Follow Us</h3>
+                    <ul>
+                        <li><a href="https://www.facebook.com/" class="text-gray-400 hover:text-white">Facebook</a></li>
+                        <li><a href="https://www.twitter.com/" class="text-gray-400 hover:text-white">Twitter</a></li>
+                        <li><a href="https://www.instagram.com/" class="text-gray-400 hover:text-white">Instagram</a></li>
+                        <li><a href="https://www.linkedin.com/" class="text-gray-400 hover:text-white">LinkedIn</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+ <!-- Login Modal -->
+    <div id="loginModal" class="hidden fixed inset-0 bg-gray-800 bg-opacity-50 flex items-center justify-center">
+        <div class="bg-white rounded-lg p-6 w-1/3">
+            <h2 class="text-xl font-bold mb-4">Login</h2>
+            <form onsubmit="handleLogin(event)">
+                <div class="mb-4">
+                    <label class="block text-gray-700">Email</label>
+                    <input id="loginEmail" type="email" class="border border-gray-300 rounded w-full px-3 py-2" required />
+                </div>
+                <div class="mb-4">
+                    <label class="block text-gray-700">Password</label>
+                    <input id="loginPassword" type="password" class="border border-gray-300 rounded w-full px-3 py-2" required />
+                </div>
+                <button type="submit" class="w-full bg-blue-600 text-white rounded py-2 hover:bg-blue-500">Login</button>
+                <button type="button" class="mt-4 w-full text-gray-600 hover:text-blue-600" onclick="toggleModal('loginModal')">Cancel</button>
+            </form>
+        </div>
+    </div>
+
+</body>
+</html>

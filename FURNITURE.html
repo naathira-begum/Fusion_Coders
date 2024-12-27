@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Furniture Purchase - Fusion Coders</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet"/>
+    <style>
+        .product-description {
+            display: none;
+        }
+        .hidden {
+            display: none;
+        }
+    </style>
+    <script>
+        function toggleDescription(id) {
+            const description = document.getElementById(id);
+            if (description.style.display === "none" || description.style.display === "") {
+                description.style.display = "block";
+            } else {
+                description.style.display = "none";
+            }
+        }
+
+        function searchProducts() {
+            const query = document.getElementById('searchInput').value.toLowerCase();
+            const products = document.querySelectorAll('.product');
+            products.forEach(product => {
+                const productName = product.querySelector('.product-name').textContent.toLowerCase();
+                if (productName.includes(query)) {
+                    product.classList.remove('hidden');
+                } else {
+                    product.classList.add('hidden');
+                }
+            });
+        }
+    </script>
+</head>
+<body class="font-roboto bg-gray-100">
+    <!-- Header -->
+    <header class="bg-white shadow">
+        <div class="container mx-auto px-6 py-3 flex justify-between items-center">
+            <a class="text-xl font-bold text-gray-800" href="#">Fusion Coders</a>
+                       <div class="flex items-center">
+                <input
+                    id="searchInput"
+                    type="text"
+                    class="px-4 py-2 border border-gray-300 rounded"
+                    placeholder="Search products..."
+                    oninput="searchProducts()"
+                />
+                <button class="ml-2 px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-500" onclick="searchProducts()">
+                    Search
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="bg-white">
+        <div class="container mx-auto px-6 py-16 text-center">
+            <h2 class="text-3xl font-bold text-gray-800">Furniture Collection</h2>
+            <p class="text-gray-600 mt-4">Explore our wide range of furniture for your home.</p>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section class="container mx-auto px-6 py-16">
+        <h2 class="text-2xl font-bold text-gray-800 text-center">Featured Furniture</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-8">
+            <!-- Product 1: Modern Sofa -->
+            <div class="bg-white shadow rounded overflow-hidden product">
+                <img alt="Modern Sofa" class="w-full h-48 object-cover" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTDnGuZat_AHV0LS-spm346mmhE14pCqoAYWw&s" />
+                <div class="p-4">
+                    <h3 class="text-lg font-bold text-gray-800 product-name">Modern Sofa</h3>
+                    <p class="text-gray-600 mt-2">₹25,000</p>
+                    <div class="flex items-center mt-2">
+                        <i class="fas fa-star text-yellow-500"></i>
+                        <i class="fas fa-star text-yellow-500"></i>
+                        <i class="fas fa-star text-yellow-500"></i>
+                        <i class="fas fa-star text-yellow-500"></i>
+                        <i class="fas fa-star text-gray -300"></i>
+                        <span class="ml-2 text-gray-600">(4.5)</span>
+                    </div>
+ <p class="text-gray-600 mt-2">Payment Options: <a href="file:///C:/Users/nathi/OneDrive/Documents/PAYMENT.html" class="text-blue-600 hover:underline">Credit/Debit Card, UPI</a></p>
+
+                    <button class="mt-4 px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-500" onclick="toggleDescription('desc1')">Add To Contact</button>
+                    <div class="product-description mt-4" id="desc1">
+                        <p class="text-gray-600">Your Item Modern Sofa is successfully added</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Product 2: Wooden Dining Table -->
+            <div class="bg-white shadow rounded overflow-hidden product">
+                <img alt="Wooden Dining Table" class="w-full h-48 object-cover" src="https://moonwooden.in/cdn/shop/files/91H82-mQZLL._SX425.jpg?v=1694853897" />
+                <div class="p-4">
+                    <h3 class="text-lg font-bold text-gray-800 product-name">Wooden Dining Table</h3>
+                    <p class="text-gray-600 mt-2">₹15,000</p>
+                    <div class="flex items-center mt-2">
+                        <i class="fas fa-star text-yellow-500"></i>
+                        <i class="fas fa-star text-yellow-500"></i>
+                        <i class="fas fa-star text-yellow-500"></i>
+                        <i class="fas fa-star text-yellow-500"></i>
+                        <i class="fas fa-star text-gray-300"></i>
+                        <span class="ml-2 text-gray-600">(4.0)</span>
+                    </div>
+ <p class="text-gray-600 mt-2">Payment Options: <a href="file:///C:/Users/nathi/OneDrive/Documents/PAYMENT.html" class="text-blue-600 hover:underline">Credit/Debit Card, UPI</a></p>
+
+                    <button class="mt-4 px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-500" onclick="toggleDescription('desc2')">Add To Contact</button>
+                    <div class="product-description mt-4" id="desc2">
+                        <p class="text-gray-600">Your Item Wooden Dining Table is successfully added</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Product 3: Stylish Bookshelf -->
+            <div class="bg-white shadow rounded overflow-hidden product">
+                <img alt="Stylish Bookshelf" class="w-full h-48 object-cover" src="https://5.imimg.com/data5/SELLER/Default/2022/6/SA/BR/XI/3009658/65f02e89417a60879716d9edfce41be7-500x500.jpg" />
+                <div class="p-4">
+                    <h3 class="text-lg font-bold text-gray-800 product-name">Stylish Bookshelf</h3>
+                    <p class="text-gray-600 mt-2">₹8,000</p>
+                    <div class="flex items-center mt-2">
+                        <i class="fas fa-star text-yellow-500"></i>
+                        <i class="fas fa-star text-yellow-500"></i>
+                        <i class="fas fa-star text-yellow-500"></i>
+                        <i class="fas fa-star text-yellow-500"></i>
+                        <i class="fas fa-star text-gray-300"></i>
+                        <span class="ml-2 text-gray-600">(4.5)</span>
+                    </div>
+ <p class="text-gray-600 mt-2">Payment Options: <a href="file:///C:/Users/nathi/OneDrive/Documents/PAYMENT.html" class="text-blue-600 hover:underline">Credit/Debit Card, UPI</a></p>
+
+                    <button class="mt-4 px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-500" onclick="toggleDescription('desc3')">Add To Contact</button>
+                    <div class="product-description mt-4" id="desc3">
+                        <p class="text-gray-600">Your Item Stylish Bookshelf is successfully added</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Product 4: Comfortable Armchair -->
+            <div class="bg-white shadow rounded overflow-hidden product">
+                <img alt="Comfortable Armchair" class="w-full h-48 object-cover" src="https://cdn.indesignlive.com/wp-content/uploads/6.armchairs-1024x683.jpg" />
+                <div class="p-4">
+                    <h3 class="text-lg font-bold text-gray-800 product-name">Comfortable Armchair</h3>
+                    <p class="text-gray-600 mt-2">₹10,000</p>
+                    <div class="flex items-center mt-2">
+                        <i class="fas fa-star text-yellow-500"></i>
+                        <i class="fas fa-star text-yellow-500"></i>
+                        <i class="fas fa-star text-yellow-500"></i>
+                        <i class="fas fa-star text-yellow-500"></i>
+                        <i class="fas fa-star text-gray-300"></i>
+                        <span class="ml-2 text-gray-600">(4.0)</span>
+                    </div>
+ <p class="text-gray-600 mt-2">Payment Options: <a href="file:///C:/Users/nathi/OneDrive/Documents/PAYMENT.html" class="text-blue-600 hover:underline">Credit/Debit Card, UPI</a></p>
+
+                    <button class="mt-4 px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-500" onclick="toggleDescription('desc4')">Add To Contact</button>
+                    <div class="product-description mt-4" id="desc4">
+                        <p class="text-gray-600">Your Item Comfortable Armchair is successfully added</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Product 5: Elegant Coffee Table -->
+            <div class="bg-white shadow rounded overflow-hidden product">
+                <img alt="Elegant Coffee Table" class="w-full h-48 object-cover" src="https://m.media-amazon.com/images/I/81CtFu9sq0L.jpg" />
+                <div class="p-4">
+                    <h3 class="text-lg font-bold text-gray-800 product-name">Elegant Coffee Table</h3>
+                    <p class="text-gray-600 mt-2">₹12,000</p>
+                    <div class="flex items-center mt-2">
+                        <i class="fas fa-star text-yellow-500"></i>
+                        <i class="fas fa-star text-yellow-500"></i>
+                        <i class="fas fa-star text-yellow-500"></i>
+                        <i class="fas fa-star text-yellow-500"></i>
+                        <i class="fas fa-star text-gray-300"></i>
+                        <span class="ml-2 text-gray-600">(4.5)</span>
+                    </div>
+ <p class="text-gray-600 mt-2">Payment Options: <a href="file:///C:/Users/nathi/OneDrive/Documents/PAYMENT.html" class="text-blue-600 hover:underline">Credit/Debit Card, UPI</a></p>
+
+                    <button class="mt-4 px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-500" onclick="toggleDescription('desc5')">Add To Contact</button>
+                    <div class="product-description mt-4" id="desc5">
+                        <p class="text-gray-600">Your Item Elegant Coffee Table is successfully added</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Product 6: Cozy Bed Frame -->
+            <div class="bg-white shadow rounded overflow-hidden product">
+                <img alt="Cozy Bed Frame" class="w-full h-48 object-cover" src="https://cdn.shopify.com/s/files/1/0298/1577/files/A_cozy_well-lit_bedroom_480x480.webp?v=1709877891" />
+                <div class="p-4">
+                    <h3 class="text-lg font-bold text-gray-800 product-name">Cozy Bed Frame</h3>
+                    <p class="text-gray-600 mt-2">₹20,000</p>
+                    <div class="flex items-center mt-2">
+                        <i class="fas fa-star text-yellow-500"></i>
+                        <i class="fas fa-star text-yellow-500"></i>
+                        <i class="fas fa-star text-yellow-500"></i>
+                        <i class="fas fa-star text-yellow-500"></i>
+                        <i class="fas fa-star text-yellow-500"></i>
+                        <span class="ml-2 text-gray-600">(5.0)</span>
+                    </div>
+ <p class="text-gray-600 mt-2">Payment Options: <a href="file:///C:/Users/nathi/OneDrive/Documents/PAYMENT.html" class="text-blue-600 hover:underline">Credit/Debit Card, UPI</a></p>
+
+                    <button class="mt-4 px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-500" onclick="toggleDescription('desc6')">Add To Contact</button>
+                    <div class="product-description mt-4" id="desc6">
+                        <p class="text-gray-600">Your Item Cozy Bed Frame is successfully added</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</body>
+</html>
